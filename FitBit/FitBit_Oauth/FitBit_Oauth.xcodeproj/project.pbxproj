@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC0D6A6F1C968D5C001355E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A6E1C968D5C001355E6 /* AppDelegate.swift */; };
+		AC0D6A711C968D5C001355E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A701C968D5C001355E6 /* ViewController.swift */; };
+		AC0D6A741C968D5C001355E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0D6A721C968D5C001355E6 /* Main.storyboard */; };
+		AC0D6A761C968D5C001355E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC0D6A751C968D5C001355E6 /* Assets.xcassets */; };
+		AC0D6A791C968D5C001355E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0D6A771C968D5C001355E6 /* LaunchScreen.storyboard */; };
+		AC0D6A811C968D6C001355E6 /* MSYFitBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A801C968D6C001355E6 /* MSYFitBit.swift */; };
+		AC0D6A971C968D74001355E6 /* Dictionary+OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A831C968D74001355E6 /* Dictionary+OAuthSwift.swift */; };
+		AC0D6A981C968D74001355E6 /* HMAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A841C968D74001355E6 /* HMAC.swift */; };
+		AC0D6A991C968D74001355E6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC0D6A851C968D74001355E6 /* Info.plist */; };
+		AC0D6A9A1C968D74001355E6 /* Int+OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A861C968D74001355E6 /* Int+OAuthSwift.swift */; };
+		AC0D6A9B1C968D74001355E6 /* NSData+OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A871C968D74001355E6 /* NSData+OAuthSwift.swift */; };
+		AC0D6A9C1C968D74001355E6 /* NSURL+OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A881C968D74001355E6 /* NSURL+OAuthSwift.swift */; };
+		AC0D6A9D1C968D74001355E6 /* OAuth1Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A891C968D74001355E6 /* OAuth1Swift.swift */; };
+		AC0D6A9E1C968D74001355E6 /* OAuth2Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A8A1C968D74001355E6 /* OAuth2Swift.swift */; };
+		AC0D6A9F1C968D74001355E6 /* OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A8C1C968D74001355E6 /* OAuthSwift.swift */; };
+		AC0D6AA01C968D74001355E6 /* OAuthSwiftClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A8D1C968D74001355E6 /* OAuthSwiftClient.swift */; };
+		AC0D6AA11C968D74001355E6 /* OAuthSwiftCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A8E1C968D74001355E6 /* OAuthSwiftCredential.swift */; };
+		AC0D6AA21C968D74001355E6 /* OAuthSwiftHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A8F1C968D74001355E6 /* OAuthSwiftHTTPRequest.swift */; };
+		AC0D6AA31C968D74001355E6 /* OAuthSwiftMultipartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A901C968D74001355E6 /* OAuthSwiftMultipartData.swift */; };
+		AC0D6AA41C968D74001355E6 /* OAuthSwiftURLHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A911C968D74001355E6 /* OAuthSwiftURLHandlerType.swift */; };
+		AC0D6AA51C968D74001355E6 /* OAuthWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A921C968D74001355E6 /* OAuthWebViewController.swift */; };
+		AC0D6AA61C968D74001355E6 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A931C968D74001355E6 /* SHA1.swift */; };
+		AC0D6AA71C968D74001355E6 /* String+OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A941C968D74001355E6 /* String+OAuthSwift.swift */; };
+		AC0D6AA81C968D74001355E6 /* UIApplication+OAuthSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A951C968D74001355E6 /* UIApplication+OAuthSwift.swift */; };
+		AC0D6AA91C968D74001355E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D6A961C968D74001355E6 /* Utils.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AC0D6A6B1C968D5C001355E6 /* FitBit_Oauth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBit_Oauth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0D6A6E1C968D5C001355E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC0D6A701C968D5C001355E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC0D6A731C968D5C001355E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC0D6A751C968D5C001355E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC0D6A781C968D5C001355E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC0D6A7A1C968D5C001355E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC0D6A801C968D6C001355E6 /* MSYFitBit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSYFitBit.swift; sourceTree = "<group>"; };
+		AC0D6A831C968D74001355E6 /* Dictionary+OAuthSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+OAuthSwift.swift"; sourceTree = "<group>"; };
+		AC0D6A841C968D74001355E6 /* HMAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
+		AC0D6A851C968D74001355E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC0D6A861C968D74001355E6 /* Int+OAuthSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+OAuthSwift.swift"; sourceTree = "<group>"; };
+		AC0D6A871C968D74001355E6 /* NSData+OAuthSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+OAuthSwift.swift"; sourceTree = "<group>"; };
+		AC0D6A881C968D74001355E6 /* NSURL+OAuthSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURL+OAuthSwift.swift"; sourceTree = "<group>"; };
+		AC0D6A891C968D74001355E6 /* OAuth1Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth1Swift.swift; sourceTree = "<group>"; };
+		AC0D6A8A1C968D74001355E6 /* OAuth2Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2Swift.swift; sourceTree = "<group>"; };
+		AC0D6A8B1C968D74001355E6 /* OAuthSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthSwift.h; sourceTree = "<group>"; };
+		AC0D6A8C1C968D74001355E6 /* OAuthSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthSwift.swift; sourceTree = "<group>"; };
+		AC0D6A8D1C968D74001355E6 /* OAuthSwiftClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthSwiftClient.swift; sourceTree = "<group>"; };
+		AC0D6A8E1C968D74001355E6 /* OAuthSwiftCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthSwiftCredential.swift; sourceTree = "<group>"; };
+		AC0D6A8F1C968D74001355E6 /* OAuthSwiftHTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthSwiftHTTPRequest.swift; sourceTree = "<group>"; };
+		AC0D6A901C968D74001355E6 /* OAuthSwiftMultipartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthSwiftMultipartData.swift; sourceTree = "<group>"; };
+		AC0D6A911C968D74001355E6 /* OAuthSwiftURLHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthSwiftURLHandlerType.swift; sourceTree = "<group>"; };
+		AC0D6A921C968D74001355E6 /* OAuthWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthWebViewController.swift; sourceTree = "<group>"; };
+		AC0D6A931C968D74001355E6 /* SHA1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHA1.swift; sourceTree = "<group>"; };
+		AC0D6A941C968D74001355E6 /* String+OAuthSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+OAuthSwift.swift"; sourceTree = "<group>"; };
+		AC0D6A951C968D74001355E6 /* UIApplication+OAuthSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+OAuthSwift.swift"; sourceTree = "<group>"; };
+		AC0D6A961C968D74001355E6 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC0D6A681C968D5C001355E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC0D6A621C968D5C001355E6 = {
+			isa = PBXGroup;
+			children = (
+				AC0D6A6D1C968D5C001355E6 /* FitBit_Oauth */,
+				AC0D6A6C1C968D5C001355E6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC0D6A6C1C968D5C001355E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC0D6A6B1C968D5C001355E6 /* FitBit_Oauth.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC0D6A6D1C968D5C001355E6 /* FitBit_Oauth */ = {
+			isa = PBXGroup;
+			children = (
+				AC0D6A821C968D74001355E6 /* OAuthSwift */,
+				AC0D6A801C968D6C001355E6 /* MSYFitBit.swift */,
+				AC0D6A6E1C968D5C001355E6 /* AppDelegate.swift */,
+				AC0D6A701C968D5C001355E6 /* ViewController.swift */,
+				AC0D6A721C968D5C001355E6 /* Main.storyboard */,
+				AC0D6A751C968D5C001355E6 /* Assets.xcassets */,
+				AC0D6A771C968D5C001355E6 /* LaunchScreen.storyboard */,
+				AC0D6A7A1C968D5C001355E6 /* Info.plist */,
+			);
+			path = FitBit_Oauth;
+			sourceTree = "<group>";
+		};
+		AC0D6A821C968D74001355E6 /* OAuthSwift */ = {
+			isa = PBXGroup;
+			children = (
+				AC0D6A831C968D74001355E6 /* Dictionary+OAuthSwift.swift */,
+				AC0D6A841C968D74001355E6 /* HMAC.swift */,
+				AC0D6A851C968D74001355E6 /* Info.plist */,
+				AC0D6A861C968D74001355E6 /* Int+OAuthSwift.swift */,
+				AC0D6A871C968D74001355E6 /* NSData+OAuthSwift.swift */,
+				AC0D6A881C968D74001355E6 /* NSURL+OAuthSwift.swift */,
+				AC0D6A891C968D74001355E6 /* OAuth1Swift.swift */,
+				AC0D6A8A1C968D74001355E6 /* OAuth2Swift.swift */,
+				AC0D6A8B1C968D74001355E6 /* OAuthSwift.h */,
+				AC0D6A8C1C968D74001355E6 /* OAuthSwift.swift */,
+				AC0D6A8D1C968D74001355E6 /* OAuthSwiftClient.swift */,
+				AC0D6A8E1C968D74001355E6 /* OAuthSwiftCredential.swift */,
+				AC0D6A8F1C968D74001355E6 /* OAuthSwiftHTTPRequest.swift */,
+				AC0D6A901C968D74001355E6 /* OAuthSwiftMultipartData.swift */,
+				AC0D6A911C968D74001355E6 /* OAuthSwiftURLHandlerType.swift */,
+				AC0D6A921C968D74001355E6 /* OAuthWebViewController.swift */,
+				AC0D6A931C968D74001355E6 /* SHA1.swift */,
+				AC0D6A941C968D74001355E6 /* String+OAuthSwift.swift */,
+				AC0D6A951C968D74001355E6 /* UIApplication+OAuthSwift.swift */,
+				AC0D6A961C968D74001355E6 /* Utils.swift */,
+			);
+			path = OAuthSwift;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC0D6A6A1C968D5C001355E6 /* FitBit_Oauth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC0D6A7D1C968D5C001355E6 /* Build configuration list for PBXNativeTarget "FitBit_Oauth" */;
+			buildPhases = (
+				AC0D6A671C968D5C001355E6 /* Sources */,
+				AC0D6A681C968D5C001355E6 /* Frameworks */,
+				AC0D6A691C968D5C001355E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FitBit_Oauth;
+			productName = FitBit_Oauth;
+			productReference = AC0D6A6B1C968D5C001355E6 /* FitBit_Oauth.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC0D6A631C968D5C001355E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "App Engineer";
+				TargetAttributes = {
+					AC0D6A6A1C968D5C001355E6 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = AC0D6A661C968D5C001355E6 /* Build configuration list for PBXProject "FitBit_Oauth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC0D6A621C968D5C001355E6;
+			productRefGroup = AC0D6A6C1C968D5C001355E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC0D6A6A1C968D5C001355E6 /* FitBit_Oauth */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC0D6A691C968D5C001355E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC0D6A991C968D74001355E6 /* Info.plist in Resources */,
+				AC0D6A791C968D5C001355E6 /* LaunchScreen.storyboard in Resources */,
+				AC0D6A761C968D5C001355E6 /* Assets.xcassets in Resources */,
+				AC0D6A741C968D5C001355E6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC0D6A671C968D5C001355E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC0D6A9E1C968D74001355E6 /* OAuth2Swift.swift in Sources */,
+				AC0D6AA11C968D74001355E6 /* OAuthSwiftCredential.swift in Sources */,
+				AC0D6A9F1C968D74001355E6 /* OAuthSwift.swift in Sources */,
+				AC0D6AA01C968D74001355E6 /* OAuthSwiftClient.swift in Sources */,
+				AC0D6A711C968D5C001355E6 /* ViewController.swift in Sources */,
+				AC0D6A981C968D74001355E6 /* HMAC.swift in Sources */,
+				AC0D6A971C968D74001355E6 /* Dictionary+OAuthSwift.swift in Sources */,
+				AC0D6AA21C968D74001355E6 /* OAuthSwiftHTTPRequest.swift in Sources */,
+				AC0D6AA81C968D74001355E6 /* UIApplication+OAuthSwift.swift in Sources */,
+				AC0D6AA31C968D74001355E6 /* OAuthSwiftMultipartData.swift in Sources */,
+				AC0D6A9A1C968D74001355E6 /* Int+OAuthSwift.swift in Sources */,
+				AC0D6AA51C968D74001355E6 /* OAuthWebViewController.swift in Sources */,
+				AC0D6AA41C968D74001355E6 /* OAuthSwiftURLHandlerType.swift in Sources */,
+				AC0D6A6F1C968D5C001355E6 /* AppDelegate.swift in Sources */,
+				AC0D6A9B1C968D74001355E6 /* NSData+OAuthSwift.swift in Sources */,
+				AC0D6AA71C968D74001355E6 /* String+OAuthSwift.swift in Sources */,
+				AC0D6AA61C968D74001355E6 /* SHA1.swift in Sources */,
+				AC0D6AA91C968D74001355E6 /* Utils.swift in Sources */,
+				AC0D6A9C1C968D74001355E6 /* NSURL+OAuthSwift.swift in Sources */,
+				AC0D6A9D1C968D74001355E6 /* OAuth1Swift.swift in Sources */,
+				AC0D6A811C968D6C001355E6 /* MSYFitBit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AC0D6A721C968D5C001355E6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC0D6A731C968D5C001355E6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC0D6A771C968D5C001355E6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC0D6A781C968D5C001355E6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC0D6A7B1C968D5C001355E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC0D6A7C1C968D5C001355E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC0D6A7E1C968D5C001355E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FitBit_Oauth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appstudioz.FitBit-Oauth";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AC0D6A7F1C968D5C001355E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FitBit_Oauth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appstudioz.FitBit-Oauth";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC0D6A661C968D5C001355E6 /* Build configuration list for PBXProject "FitBit_Oauth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC0D6A7B1C968D5C001355E6 /* Debug */,
+				AC0D6A7C1C968D5C001355E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC0D6A7D1C968D5C001355E6 /* Build configuration list for PBXNativeTarget "FitBit_Oauth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC0D6A7E1C968D5C001355E6 /* Debug */,
+				AC0D6A7F1C968D5C001355E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC0D6A631C968D5C001355E6 /* Project object */;
+}
