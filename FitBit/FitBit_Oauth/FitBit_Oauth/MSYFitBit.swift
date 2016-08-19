@@ -8,13 +8,14 @@
 
 import UIKit
 
+
 let fitbit_clientID=""
 let fitbit_consumer_secret=""
 let fitbit_redirect_uri="fivedotsFitbit://"
 
 
 class MSYFitBit: NSObject {
-
+    
     let oauthswift = OAuth2Swift(
         consumerKey:    fitbit_clientID, //serviceParameters["consumerKey"]!,
         consumerSecret: fitbit_consumer_secret,
@@ -24,36 +25,30 @@ class MSYFitBit: NSObject {
     )
     
     
-    var parameter = [String: String]()
+    var parameter = [String: AnyObject?]()
     var accessToken:String?
     
-    let group:dispatch_group_t=dispatch_group_create()
+    let group = DispatchGroup()
     
     // completion handler
-    typealias fitBitBlockType = (result:Dictionary<String , AnyObject>,success:Bool) ->Void
+    typealias fitBitBlockType = (_ result: Dictionary<String , AnyObject>, _ success:Bool) -> Void
     var completionFitBit:fitBitBlockType?
     
     
     
-    class var shareFitBit: MSYFitBit{
-        struct Static {
-            static var once_token:dispatch_once_t = 0
-            static var instance:MSYFitBit? = nil
-        }
-        dispatch_once(&Static.once_token){
-            Static.instance = MSYFitBit()
-        }
-        return Static.instance!
-    }
+    // the swift way of defining singletons
     
+    static let shareFitBit = MSYFitBit()
+    private override init() {}
+
     
+    // This stackoverflow link explains the rationale of using @escaping before the closure http://stackoverflow.com/questions/38990882/closure-use-of-non-escaping-parameter-may-allow-it-to-escape
     
-    
-    func fetchDataFromFitbit(completion: (result: Dictionary<String , AnyObject>, success:Bool) -> Void){
+    func fetchDataFromFitbit(completion: @escaping (_ result: Dictionary<String , AnyObject>, _ success:Bool) -> Void){
         
         completionFitBit = completion
         
-        let token=NSUserDefaults.standardUserDefaults().valueForKey("Atoken") //as String
+        let token=UserDefaults.standard.value(forKey: "Atoken") //as String
         
         
         if let currentAccessToken=token {
@@ -61,13 +56,13 @@ class MSYFitBit: NSObject {
             callDispatch()
             
         }else{
-            self.doOAuthFitbit2({ (success) -> Void in
+            self.doOAuthFitbit2(completion: { (success) -> Void in
                 if success {
                     
                     self.callDispatch()
                     
                 }else{
-                    
+
                 }
             })
             return
@@ -75,150 +70,153 @@ class MSYFitBit: NSObject {
     }
     
     
-   
+    
     func callDispatch(){
-        dispatch_group_enter(group)
-           self.getHeartRateFitbit2(self.oauthswift)
+        group.enter()
+        self.getHeartRateFitbit2(oauthswift: self.oauthswift)
         
         
-        dispatch_group_enter(group)
-           self.getActicityFitbit2(self.oauthswift)
+        group.enter()
+        self.getActivityFitbit2(oauthswift: self.oauthswift)
         
         
-        dispatch_group_enter(group)
-           self.getWeightFitbit2(self.oauthswift)
+        group.enter()
+        self.getWeightFitbit2(oauthswift: self.oauthswift)
         
-        dispatch_group_enter(group)
-        self.getStepFitbit2(self.oauthswift)
+        group.enter()
+        self.getStepFitbit2(oauthswift: self.oauthswift)
         
-        dispatch_group_notify(group, dispatch_get_main_queue(), {
-            self.completionFitBit!(result: Dictionary(), success: true)
-        })
+        
+        group.notify(queue: DispatchQueue.main) {
+            self.completionFitBit!(Dictionary(), true)
+            
+        }
+        
     }
     
     
     
-    func doOAuthFitbit2(completion: (success:Bool) -> Void) {
+    func doOAuthFitbit2(completion: @escaping (_ success:Bool) -> Void) {
         oauthswift.accessTokenBasicAuthentification = true
         let state: String = generateStateWithLength(20) as String
-        oauthswift.authorizeWithCallbackURL( NSURL(string: "fivedotsFitbit://")!, scope: "profile activity heartrate weight nutrition location", state: state, success: {
+        oauthswift.authorizeWithCallbackURL( NSURL(string: "fivedotsFitbit://") as! URL, scope: "profile activity heartrate weight nutrition location", state: state, success: {
             credential, response, parameters in
             //print("credential is \(credential)")
             //print("response is \(response)")
             print("parameters is \(parameters)")
-            self.parameter=parameters;
-            self.accessToken=parameters["access_token"]
+            self.parameter=parameters as [String: AnyObject?]
+            self.accessToken=parameters["access_token"] as? String
             print(self.accessToken)
-            NSUserDefaults.standardUserDefaults().setValue(self.accessToken, forKey: "Atoken")
+            UserDefaults.standard.setValue(self.accessToken, forKey: "Atoken")
             
-           completion(success: true)
+            completion(true)
             
             
             }, failure: { error in
                 print(error.localizedDescription)
-                completion(success: false)
+                completion(false)
         })
     }
     
-    func getProfielFitbit2(oauthswift: OAuth2Swift) {
-        let token=NSUserDefaults.standardUserDefaults().valueForKey("Atoken") //as String
+    func getProfileFitbit2(oauthswift: OAuth2Swift) {
+        let token=UserDefaults.standard.value(forKey: "Atoken") //as String
         let header=["Authorization":"Bearer "+(token as! String)]
         
         
         //header=["Authorization":"Bearer " + token]
         oauthswift.client.request("https://api.fitbit.com/1/user/-/profile.json", method: .GET, parameters: [:], headers: header, success: { (data, response) -> Void in
-            let jsonDict: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
+            let jsonDict = try? JSONSerialization.jsonObject(with: data, options: [])
             print(jsonDict)
-            }) { (error) -> Void in
-                print(error.localizedDescription)
-                self.showALertWithTag(999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
+        }) { (error) -> Void in
+            print(error.localizedDescription)
+            self.showALertWithTag(tag: 999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
         }
     }
     
     
-    func getActicityFitbit2(oauthswift: OAuth2Swift) {
+    func getActivityFitbit2(oauthswift: OAuth2Swift) {
         
         
         
-        let token=NSUserDefaults.standardUserDefaults().valueForKey("Atoken") //as String
+        let token=UserDefaults.standard.value(forKey: "Atoken") //as String
         let header=["Authorization":"Bearer "+(token as! String)]
         
         
         //header=["Authorization":"Bearer " + token]
         oauthswift.client.request("https://api.fitbit.com/1/user/-/activities/list.json?offset=2&limit=5&sort=desc&beforeDate=2016-03-13", method: .GET, parameters: [:], headers: header, success: { (data, response) -> Void in
-               let jsonDict: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
-                print(jsonDict)
-                dispatch_group_leave(self.group);
+            let jsonDict = try? JSONSerialization.jsonObject(with: data, options: [])
+            print(jsonDict)
+            self.group.leave()
             
-            }) { (error) -> Void in
-                print(error.localizedDescription)
-                self.showALertWithTag(999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
+        }) { (error) -> Void in
+            print(error.localizedDescription)
+            self.showALertWithTag(tag: 999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
         }
-     }
+    }
     
     
     
     
     func getStepFitbit2(oauthswift: OAuth2Swift) {
-       
-        let token=NSUserDefaults.standardUserDefaults().valueForKey("Atoken") //as String
+        
+        let token=UserDefaults.standard.value(forKey: "Atoken") //as String
         let header=["Authorization":"Bearer "+(token as! String)]
         
         
         //header=["Authorization":"Bearer " + token]
         oauthswift.client.request("https://api.fitbit.com/1/user/-/activities/steps/date/2016-03-03/1m.json", method: .GET, parameters: [:], headers: header, success: { (data, response) -> Void in
-            let jsonDict: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
+            let jsonDict = try? JSONSerialization.jsonObject(with: data, options: [])
             print(jsonDict)
-            dispatch_group_leave(self.group);
+            self.group.leave()
             
-            }) { (error) -> Void in
-                print(error.localizedDescription)
-                self.showALertWithTag(999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
+        }) { (error) -> Void in
+            print(error.localizedDescription)
+            self.showALertWithTag(tag: 999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
         }
     }
     
     
     
     func getWeightFitbit2(oauthswift: OAuth2Swift) {
-       
         
-        let token=NSUserDefaults.standardUserDefaults().valueForKey("Atoken") //as String
+        
+        let token=UserDefaults.standard.value(forKey: "Atoken") //as String
         let header=["Authorization":"Bearer "+(token as! String)]
         
         
         //header=["Authorization":"Bearer " + token]
         oauthswift.client.request("https://api.fitbit.com/1/user/-/body/log/weight/date/2016-03-13/1m.json", method: .GET, parameters: [:], headers: header, success: { (data, response) -> Void in
-                let jsonDict: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
-                print(jsonDict)
-                dispatch_group_leave(self.group);
-            }) { (error) -> Void in
-                print(error.localizedDescription)
-                self.showALertWithTag(999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
+            let jsonDict = try? JSONSerialization.jsonObject(with: data, options: [])
+            print(jsonDict)
+            self.group.leave()
+        }) { (error) -> Void in
+            print(error.localizedDescription)
+            self.showALertWithTag(tag: 999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
         }
     }
     
     
     func getHeartRateFitbit2(oauthswift: OAuth2Swift) {
-      
         
-        let token=NSUserDefaults.standardUserDefaults().valueForKey("Atoken") //as String
+        
+        let token=UserDefaults.standard.value(forKey: "Atoken") //as String
         let header=["Authorization":"Bearer "+(token as! String)]
         
         
         oauthswift.client.request("https://api.fitbit.com/1/user/-/activities/heart/date/2016-03-13/1m.json", method: .GET, parameters: [:], headers: header, success: { (data, response) -> Void in
-                 let jsonDict: AnyObject! = try? NSJSONSerialization.JSONObjectWithData(data, options: [])
-                 print(jsonDict)
-                 dispatch_group_leave(self.group);
-            }) { (error) -> Void in
-                 print(error.localizedDescription)
-                 self.showALertWithTag(999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
+            let jsonDict = try? JSONSerialization.jsonObject(with: data, options: [])
+            print(jsonDict)
+            self.group.leave()
+        }) { (error) -> Void in
+            print(error.localizedDescription)
+            self.showALertWithTag(tag: 999, title: "error.....", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK", otherButtonTitle: nil)
         }
     }
     
     
     
-    //MARK: AlertView
-     func showALertWithTag(tag:Int, title:String, message:String?,delegate:AnyObject!, cancelButtonTitle:String?, otherButtonTitle:String?)
+    //MARK: AlertView - deprecated in iOS 9
+    func showALertWithTag(tag:Int, title:String, message:String?,delegate:AnyObject!, cancelButtonTitle:String?, otherButtonTitle:String?)
     {
         let alert = UIAlertView()
         
@@ -228,18 +226,16 @@ class MSYFitBit: NSObject {
         alert.delegate = delegate
         if (cancelButtonTitle != nil)
         {
-            alert.addButtonWithTitle(cancelButtonTitle!)
+            alert.addButton(withTitle: cancelButtonTitle!)
         }
         if (otherButtonTitle != nil)
         {
-            alert.addButtonWithTitle(otherButtonTitle!)
+            alert.addButton(withTitle: otherButtonTitle!)
         }
         
         alert.show()
     }
-
+    
     
     
 }
-
-
